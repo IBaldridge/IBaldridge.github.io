@@ -67,8 +67,8 @@
 			var positionY = 0;
 			var speedY = 10;
 			var boardHeight = jQuery(window).height()
-			var randNumX = Math.random() * 1300
-			var randNumY = Math.random() * 600
+			var randNumX = Math.random() * boardWidth;
+			var randNumY = Math.random() * boardHeight;
 			
 			
 			/* 
@@ -80,13 +80,13 @@
 				positionX = positionX + speed
 				positionY = positionY + speedY
 				moveBoxTo (positionX, positionY)
-				if (positionX > 1300){
+				if (positionX > boardWidth){
 					speed = -speed
 				}
 				if (positionX < 0) {
 					speed = speed * -1
 				}
-				if (positionY > 600) {
+				if (positionY > boardHeight) {
 					speedY = -speedY
 				}	
 				if (positionY < 0) {
@@ -96,7 +96,13 @@
 			function moveBoxTo (newPositionX, newPositionY) {
 				box.css('left', newPositionX)
 				box.css('top', newPositionY)
-				
+			
+			}
+			
+			
+			function getRandomColor () {
+				var colorStr = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+				return colorStr;
 			}
 			
 			/* 
@@ -111,10 +117,10 @@
 				speed = speed + 3
 				speedY = speedY + 3
 				changeBoxText(points);
+				var saveHere = getRandomColor();
+				box.css ('background-color', saveHere);
 				
-				
-
-
+			
 			};
 		})();
 	</script>
