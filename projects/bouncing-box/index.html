@@ -6,7 +6,11 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.board {
-			background-color: gray;
+			background-image: url(https://i.ytimg.com/vi/YgmIibSnZs0/maxresdefault.jpg);
+			background-position:top;
+			background-repeat: no-repeat;
+			background-size:cover;
+			background-color:gray;
 		}
 		.box {
 			width: 70px;
@@ -29,7 +33,7 @@
 
 	<script>
 		(function(){
-			'use strict'
+			'use strict';
 			/* global jQuery */
 
 			//////////////////////////////////////////////////////////////////
@@ -61,12 +65,12 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = 0
-			var points = 0
-			var speed = 10
+			var positionX = 0;
+			var points = 0;
+			var speed = 10;
 			var positionY = 0;
 			var speedY = 10;
-			var boardHeight = jQuery(window).height()
+			var boardHeight = jQuery(window).height();
 			var randNumX = Math.random() * boardWidth;
 			var randNumY = Math.random() * boardHeight;
 			
@@ -77,31 +81,31 @@
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + speed
-				positionY = positionY + speedY
-				moveBoxTo (positionX, positionY)
+				positionX = positionX + speed;
+				positionY = positionY + speedY;
+				moveBoxTo (positionX, positionY);
 				if (positionX > boardWidth){
-					speed = -speed
+					speed = -speed;
 				}
 				if (positionX < 0) {
-					speed = speed * -1
+					speed = speed * -1;
 				}
 				if (positionY > boardHeight) {
-					speedY = -speedY
+					speedY = -speedY;
 				}	
 				if (positionY < 0) {
-					speedY = speedY * -1
+					speedY = speedY * -1;
 				}	
-			};
+			}
 			function moveBoxTo (newPositionX, newPositionY) {
-				box.css('left', newPositionX)
-				box.css('top', newPositionY)
+				box.css('left', newPositionX);
+				box.css('top', newPositionY);
 			
 			}
 			
 			
 			function getRandomColor () {
-				var colorStr = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")"
+				var colorStr = "rgb(" + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + "," + Math.floor(Math.random()*256) + ")";
 				return colorStr;
 			}
 			
@@ -112,16 +116,16 @@
 			*/
 			function handleBoxClick() {
 				positionX = randNumX;
-				positionY = randNumY
-				points = points + 1
-				speed = speed + 3
-				speedY = speedY + 3
+				positionY = randNumY;
+				points = points + 1;
+				speed = speed + 3;
+				speedY = speedY + 3;
 				changeBoxText(points);
 				var saveHere = getRandomColor();
 				box.css ('background-color', saveHere);
 				
 			
-			};
+			}
 		})();
 	</script>
 </body>
