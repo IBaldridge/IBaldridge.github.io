@@ -1,2 +1,2 @@
-# IBaldridge.github.io
+# Isabella.github.io
 My portfolio website
